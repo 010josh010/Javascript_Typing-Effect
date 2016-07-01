@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+        body{
+    background-image:url(images/stars-min.jpg); 
+    background-size:cover; 
+    background-attachment: fixed; 
+    max-width:100%;
+}
+
+.wrapper{
+    text-align: center;
+    margin:15% auto;
+}
+
+#field{
+    color:#FFF; 
+    font-size:3em;
+    background:transparent; 
+    border:none; 
+     
+}
+
+.world{
+    background:#3399ff url("images/world.png") no-repeat left;
+    background-size:cover;
+    text-align: center; 
+    border-radius: 50%; 
+    box-shadow:0 0 10px #9ecaed;; 
+    margin:5em auto; 
+    display:block; 
+    height:33em; 
+    width:33em;     
+} 
+
+@media screen and (max-width:550px){
+    .world{
+        height:24em; 
+        width:24em;
+    }
+}
+    
+    </style>
+</head>
+<body>
+   
+    <div class = "wrapper"><input id ="field" type="text" name= "field" size = 12></div>
+    
+    <div class = "world"></div>                    
+                                          
+   <script>     
+       
+    var field = document.getElementById('field');
+    var txt = "Hello World!";
+    function typing(input, str ){
+        var i=0, time = 300; 
+        input.focus(); 
+        var put =setInterval(function(){ input.value = str.slice(0, i++)}, time);
+        setTimeout(function(){ clearInterval(put) }, time * str.length +500);
+        input.onblur = function(){
+            clearInterval(put); 
+            input.value = ""; 
+            typing(input, str); 
+        }
+    }
+    typing(field, txt);  
+    </script>               
+</body>
+</html>
