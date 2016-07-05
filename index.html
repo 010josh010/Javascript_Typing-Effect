@@ -60,12 +60,8 @@
         var i=0, time = 300; 
         input.focus(); 
         var put =setInterval(function(){ input.value = str.slice(0, i++)}, time);
-        setTimeout(function(){ clearInterval(put) }, time * str.length +500);
-        input.onblur = function(){
-            clearInterval(put); 
-            input.value = ""; 
-            typing(input, str); 
-        }
+        setTimeout(function(){ clearInterval(put); input.value=""; typing(input,str); }, time * str.length +5000);
+      
     }
     typing(field, txt);  
     </script>               
